@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://u82ae7n70lp6"]
+
+[ext_resource type="Script" uid="uid://bklwo4tlsxs8g" path="res://Script/lava.gd" id="1_erykr"]
+[ext_resource type="PackedScene" uid="uid://dpilqrct7e1yx" path="res://Scenes/killzone.tscn" id="2_erykr"]
+[ext_resource type="Texture2D" uid="uid://bnmf5a4xuxkxt" path="res://images/godotwaka2.png" id="2_t7utp"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t7utp"]
+normal = Vector2(1, 0)
+
+[node name="lava" type="Area2D"]
+script = ExtResource("1_erykr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-5, 3)
+rotation = -1.5708
+scale = Vector2(0.0697199, 0.0740395)
+texture = ExtResource("2_t7utp")
+
+[node name="killzone" parent="." instance=ExtResource("2_erykr")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+shape = SubResource("WorldBoundaryShape2D_t7utp")
